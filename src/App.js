@@ -1,25 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import { SplitSceen } from './SplitSceen';
 
+const LeftHandComponent = () => {
+  return <h1 style={{ backgroundColor: 'green' }}>Left!</h1>;
+};
+
+const RightHandComponent = () => {
+  return <p style={{ backgroundColor: 'red' }}> Right!</p>;
+};
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <SplitSceen left={LeftHandComponent} right={RightHandComponent} />;
 }
 
 export default App;
