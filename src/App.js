@@ -1,20 +1,53 @@
-import { useState } from 'react';
-import { ControlledModal } from './ControlledModal';
+import { UncontrolledOnboardinfFlow } from './UncontrolledOnboardinfFlow';
+
+const StepOne = ({ gotToNext }) => (
+  <>
+    <h1>Step one</h1>
+    <button
+      onClick={() =>
+        gotToNext({
+          name: 'Abel',
+        })
+      }
+    >
+      Next
+    </button>
+  </>
+);
+const StepTwo = ({ gotToNext }) => (
+  <>
+    <h1>Step two</h1>
+    <button onClick={() => gotToNext({ age: 100 })}>Next</button>
+  </>
+);
+const StepThree = ({ gotToNext }) => (
+  <>
+    <h1>Step three</h1>
+    <button
+      onClick={() =>
+        gotToNext({
+          hairColor: 'black',
+        })
+      }
+    >
+      Next
+    </button>
+  </>
+);
+
 function App() {
-  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <ControlledModal
-        shouldShow={isOpen}
-        onRequestClose={() => {
-          setIsOpen(false);
+      <UncontrolledOnboardinfFlow
+        onFinish={(data) => {
+          console.log(data);
+          alert('The End');
         }}
       >
-        <h1>hello Modal</h1>
-      </ControlledModal>
-      <button onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? 'Hide Modal' : 'Show Modal'}
-      </button>
+        <StepOne />
+        <StepTwo />
+        <StepThree />
+      </UncontrolledOnboardinfFlow>
     </>
   );
 }
