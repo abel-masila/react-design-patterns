@@ -1,13 +1,10 @@
-import { withUser } from './withUser';
-import { UserInfo } from './UserInfo';
-
-const UserInfoWithLoader = withUser(UserInfo, '234');
+import { UserInfoForm } from './UserInfoForm';
 
 function App() {
   return (
     <>
       <h1>Here</h1>
-      <UserInfoWithLoader />
+      <UserInfoForm />
     </>
   );
 }
