@@ -1,6 +1,6 @@
-import { withEditableUser } from './withEditableUser';
+import { withEditableResource } from './withEditableResource';
 
-export const UserInfoForm = withEditableUser(
+export const UserInfoForm = withEditableResource(
   ({ user, onChangeUser, onSaveUser, onResetUser }) => {
     const { name, age, hairColor } = user || {};
     return user ? (
@@ -29,5 +29,6 @@ export const UserInfoForm = withEditableUser(
       <p>Loading...</p>
     );
   },
-  '123'
+  '/users/123',
+  'user'
 );
